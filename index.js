@@ -5,11 +5,15 @@ const app = express()
 const router = express.Router()
 
 router.get('/api/:id', (req, res) => {
-  res.json({id:req.params.id})
+  setTimeout(() => {
+    res.json({ id: req.params.id })
+  }, (req.query && req.query.wait) || 10)
 })
 
 router.post('/api/:id', (req, res) => {
-  res.send(req.body)
+  setTimeout(() => {
+    res.send(req.body)
+  }, (req.query && req.query.wait) || 10)
 })
 
 app
