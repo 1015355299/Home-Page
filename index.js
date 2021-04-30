@@ -5,7 +5,7 @@ const app = express()
 const router = express.Router()
 
 router.get('/api/:id', (req, res) => {
-  res.end(req.params.id)
+  res.json({id:req.params.id})
 })
 
 router.post('/api/:id', (req, res) => {
